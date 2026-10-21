@@ -12,6 +12,7 @@ print("========================================")
 actividad = input("Ingrese el nombre de la actividad: ")
 presupuesto = float(input("Ingrese el presupuesto disponible (S/): "))
 costo_estimado = float(input("Ingrese el costo estimado de la actividad (S/): "))
+porcentaje_utilizado = (costo_estimado / presupuesto) * 100 if presupuesto > 0 else 0
 
 # --- EVALUACIÓN DE REGLAS DE NEGOCIO Y SALIDA ---
 print("\n========================================")
@@ -29,6 +30,9 @@ elif costo_estimado <= presupuesto:
     saldo_restante = presupuesto - costo_estimado
     print("Resultado: Dentro del presupuesto")
     print("Saldo restante: S/", saldo_restante)
+    if costo_estimado == presupuesto:
+        print("Presupuesto utilizado al 100 %")
+    print("presupuesto utilizado: {:.2f} %".format(porcentaje_utilizado))
 
 # Regla 3: Evaluar exceso presupuestario
 else:
